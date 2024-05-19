@@ -1,0 +1,46 @@
+{# navigation.twig #}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-watch"></i> MK Time </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if pages.index %}active{% endif %}" aria-current="page" href="index.html">
+                        <i class="bi bi-house-door-fill"></i> Home </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {% if pages.mens or pages.pocket or pages.womens %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bag-check"></i> Products </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item {% if pages.mens %}active{% endif %}" href="mens.html">Mens Watch</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item {% if pages.womens %}active{% endif %}" href="womens.html">Womens Watch</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item {% if pages.pocket %}active{% endif %}" href="pocket.html">Pocket Watch</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if pages.contact %}active{% endif %}" href="contact.html">
+                        <i class="bi bi-person-lines-fill"></i> Contact </a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <form class="container-fluid justify-content-start">
+                    <button class="btn btn-outline-success me-2" onclick="goSignup();" id="signup" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="New to MK Time? Create a free account now!" type="button">Sign Up</button>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="goSignin();" type="button">Sign In</button>
+                </form>
+            </span>
+        </div>
+    </div>
+</nav>
