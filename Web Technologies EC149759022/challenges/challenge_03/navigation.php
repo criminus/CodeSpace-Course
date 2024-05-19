@@ -40,7 +40,13 @@ $pages = [
     ],
 ];
 
+$user_data = [
+    'userLoggedIn' => isset($_SESSION['loggedin']) && $_SESSION['loggedin'],
+    'email' => isset($_SESSION['email']) ? $_SESSION['email'] : null
+];
+
 return [
-    'pages' => $pages,
-    'activePage' => $activePage,
+    'pages'             => $pages,
+    'activePage'        => $activePage,
+    'user'              => $user_data,
 ];

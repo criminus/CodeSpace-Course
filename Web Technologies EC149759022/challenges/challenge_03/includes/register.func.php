@@ -47,10 +47,8 @@ function registerUser(
     //If there are no errors, we create the account with the given data:
     if (empty($errors)) {
         try {
-            //Hash password using password_hash instead of MD5
-            $hash_password = password_hash($password, PASSWORD_BCRYPT);
             $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, pass, email, reg_date) VALUES (?, ?, ?, ?, NOW())");
-            $stmt->execute([$first_name, $last_name, $hash_password, $email]);
+            $stmt->execute([$first_name, $last_name, $password, $email]);
         } 
         catch (PDOException $e) {
             $errors[] = 'Database error ' . $e->getMessage();

@@ -1,7 +1,7 @@
 {# navigation.twig #}
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{ pages.index.url }}">
             <i class="bi bi-watch"></i> MK Time </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,12 +35,31 @@
                         <i class="bi bi-person-lines-fill"></i> Contact </a>
                 </li>
             </ul>
+
+            {% if user.userLoggedIn %}
+            <span class="navbar-text">
+                <hr class="responsive-hr" /> {{ user.email }}
+            </span>
+            <span class="navbar-text">
+                <form class="container-fluid justify-content-start  responsive-cart">
+                    <button type="button" class="btn btn-light position-relative">
+                        <i class="bi bi-cart-plus"></i> Cart <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> 0 <span class="visually-hidden"></span>
+                        </span>
+                    </button>
+                </form>
+            </span>
+            <span class="navbar-text">
+                <a href="logout.php" class="btn btn-sm btn-danger" type="button">
+                    <i class="bi bi-box-arrow-right"></i> Log out </a>
+            </span>
+            {% else %}
             <span class="navbar-text">
                 <form class="container-fluid justify-content-start">
                     <a href="{{ pages.signup.url }}" class="btn {% if pages.signup.isActive %}btn-success{% else %}btn-outline-success{% endif %} me-2" id="signup" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="New to MK Time? Create a free account now!" type="button">Sign Up</a>
                     <a href="{{ pages.signin.url }}" class="btn {% if pages.signin.isActive %}btn-sm btn-secondary{% else %}btn-sm btn-outline-secondary{% endif %}" type="button">Sign In</a>
                 </form>
             </span>
+            {% endif %}
         </div>
     </div>
 </nav>
