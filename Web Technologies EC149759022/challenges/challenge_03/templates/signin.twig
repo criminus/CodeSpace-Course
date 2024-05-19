@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{sitename}} - {{pageTitle}}</title>
+		{% include 'head.twig' %}
+	</head>
+	<body>
+		{% include 'navigation.twig' %}
+		<div class="container">
+			<h3 style="margin-top: 10px;"> Sign in </h3>
+			<hr>
+			<br>
+			<div class="sign-in-page">
+				<div class="card" style="width: 100%; max-width: 500px;margin: auto;">
+					<div class="card-body">
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Username</label>
+							<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Password</label>
+							<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+							<label class="form-check-label" for="flexCheckDefault"> Remember me </label>
+						</div>
+						<hr>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		{% include 'footer.twig' %}
+	</body>
+</html>

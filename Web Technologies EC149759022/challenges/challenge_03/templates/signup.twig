@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{sitename}} - {{pageTitle}}</title>
+		{% include 'head.twig' %}
+	</head>
+	<body>
+		{% include 'navigation.twig' %}
+		<div class="container">
+			<h3 style="margin-top: 10px;"> Create account </h3>
+			<hr>
+			<br>
+			<div class="sign-up-page">
+				<div class="card" style="width: 100%; max-width: 500px;margin: auto;">
+					<div class="card-body">
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Username</label>
+							<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Password</label>
+							<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Confirm password</label>
+							<input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						</div>
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">Email address</label>
+							<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+							<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleFormControlInput1" class="form-label">Confirm email</label>
+							<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+						</div>
+						<hr>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		{% include 'footer.twig' %}
+	</body>
+</html>

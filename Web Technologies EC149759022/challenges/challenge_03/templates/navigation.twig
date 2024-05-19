@@ -37,8 +37,8 @@
             </ul>
             <span class="navbar-text">
                 <form class="container-fluid justify-content-start">
-                    <button class="btn btn-outline-success me-2" onclick="goSignup();" id="signup" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="New to MK Time? Create a free account now!" type="button">Sign Up</button>
-                    <button class="btn btn-sm btn-outline-secondary" onclick="goSignin();" type="button">Sign In</button>
+                    <a href="{{ pages.signup.url }}" class="btn {% if pages.signup.isActive %}btn-success{% else %}btn-outline-success{% endif %} me-2" id="signup" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="New to MK Time? Create a free account now!" type="button">Sign Up</a>
+                    <a href="{{ pages.signin.url }}" class="btn {% if pages.signin.isActive %}btn-sm btn-secondary{% else %}btn-sm btn-outline-secondary{% endif %}" type="button">Sign In</a>
                 </form>
             </span>
         </div>
