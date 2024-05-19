@@ -26,7 +26,7 @@ function registerUser(
 
     //Check if passwords don't match
     if ($password !== $conf_password) {
-        $errors[] = 'Password don\t match!';
+        $errors[] = 'Passwords don\t match!';
     }
 
     //Validate email using FILTER_VALIDATE_EMAIL
