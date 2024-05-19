@@ -8,19 +8,39 @@ require 'includes/autoload.php';
 $uri = $_SERVER["REQUEST_URI"];
 $activePage = basename($uri, ".php"); // Remove the php extension for the file
 
-//Define each page
+//Define each page if active and its name
 $pages = [
-    'contact'   => $activePage == 'contact',
-    'index'     => $activePage == 'index',
-    'mens'      => $activePage == 'mens',
-    'pocket'    => $activePage == 'pocket',
-    'signin'    => $activePage == 'signin',
-    'signup'    => $activePage == 'signup',
-    'womens'    => $activePage == 'womens',
+    'contact'   => [
+        'url'       => 'contact.php',
+        'isActive'  => $activePage == 'contact'
+    ],
+    'index'     => [
+        'url'       => 'index.php',
+        'isActive'  => $activePage == 'index',
+    ],
+    'mens'      => [
+        'url'       => 'mens.php',
+        'isActive'  => $activePage == 'mens',
+    ],
+    'pocket'    => [
+        'url'       => 'pocket.php',
+        'isActive'  => $activePage == 'pocket',
+    ],
+    'signin'    => [
+        'url'       => 'signin.php',
+        'isActive'  => $activePage == 'signin',
+    ],
+    'signup'    => [
+        'url'       => 'signup.php',
+        'isActive'  => $activePage == 'signup',
+    ],
+    'womens'    => [
+        'url'       => 'womens.php',
+        'isActive'  => $activePage == 'womens',
+    ],
 ];
 
 return [
     'pages' => $pages,
     'activePage' => $activePage,
-    'testData'      => 'test',
 ];
