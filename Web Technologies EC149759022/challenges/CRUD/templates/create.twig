@@ -12,7 +12,19 @@
         <h1 class="h2">C.R.U.D <small>(Create)</small></h1>
         <p>This form will collect data from the user to create a new record in the database.</p>
         <hr>
-        <form>
+        <form method='post' action='includes/create.form.php'>
+        {% if form_message %}
+            <div class="alert alert-{{ form_message_type }}" role="alert">
+                {{ form_message }}
+            </div>
+        {% endif %}
+        {% if errors is not empty %}
+            <div class="alert alert-danger">
+                    {% for error in errors %}
+                    {{ error }}<br>
+                    {% endfor %}
+            </div>
+        {% endif %}
         <div class="mb-3">
             <label for="itemName" class="form-label">Item Name:</label>
             <input type="text" class="form-control" id="itemName" name="itemName" required>
@@ -25,9 +37,9 @@
             <label for="itemImage" class="form-label">Image:</label>
             <input type="text" class="form-control" id="itemImage" name="itemImage" required>
         </div>
-        <div class="input-group">
-            <span class="input-group-text">£</span>
-            <input type="text" class="form-control" id="priceValue" name="priceValue" required>
+        <div class="mb-3">
+            <label for="itemPrice" class="form-label">Item Price:</label>
+            <input type="number" class="form-control" id="itemPrice" name="itemPrice" step="0.01" required>
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Add item</button>
