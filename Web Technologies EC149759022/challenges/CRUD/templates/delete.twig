@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{site_name}} - {{page_title}}</title>
+    {% include 'head.twig' %}
+</head>
+<body>
+    {% include 'navigation.twig' %}
+    <div class="container py-5">
+        <h1 class="h2">C.R.U.D <small>(Delete)</small></h1>
+        <p>In this lesson, you will learn how to delete a record from a database using PHP. We'll cover the essential steps involved in connecting to a database, executing a deletion query, and handling the result.</p>
+        <hr>
+        <h4>Confirm Item Deletion for: </h4>
+        <p>Are you sure you want to delete item ?</p>
+        <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Confirm</a>
+        <a href="#" class="btn btn-success"><i class="fa fa-times" aria-hidden="true"></i> Abort</a>
+    </div>
+    {% include 'footer.twig' %}
+</body>
+</html>

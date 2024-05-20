@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{site_name}} - {{page_title}}</title>
+    {% include 'head.twig' %}
+</head>
+<body>
+    {% include 'navigation.twig' %}
+    <div class="container py-5">
+        <h1 class="h2">C.R.U.D <small>(Create)</small></h1>
+        <p>This form will collect data from the user to create a new record in the database.</p>
+        <hr>
+        <form>
+        <div class="mb-3">
+            <label for="itemName" class="form-label">Item Name:</label>
+            <input type="text" class="form-control" id="itemName" name="itemName" required>
+        </div>
+        <div class="mb-3">
+            <label for="itemDesc" class="form-label">Description:</label>
+            <textarea class="form-control" id="itemDesc" name="itemDesc" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="itemImage" class="form-label">Image:</label>
+            <input type="text" class="form-control" id="itemImage" name="itemImage" required>
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">£</span>
+            <input type="text" class="form-control" id="priceValue" name="priceValue" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Add item</button>
+        </form>
+    </div>
+    {% include 'footer.twig' %}
+</body>
+</html>

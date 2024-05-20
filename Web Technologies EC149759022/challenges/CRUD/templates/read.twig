@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{site_name}} - {{page_title}}</title>
+    {% include 'head.twig' %}
+</head>
+<body>
+    {% include 'navigation.twig' %}
+    <div class="container py-5">
+        <h1 class="h2">C.R.U.D <small>(Read)</small></h1>
+        <p>Websites often need to display dynamic content based on user input, preferences, or real-time data. Reading from a database allows PHP to fetch and display this content dynamically.</p>
+        <hr>
+        <div class="flex">
+            <div class="card" style="width: 18rem;">
+                <img src="./images/1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i> Update</a>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="./images/1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i> Update</a>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'footer.twig' %}
+</body>
+</html>

@@ -9,7 +9,7 @@ $navigation = include 'navigation.php';
 
 $data = array_merge($navigation, [
     'site_name'     => 'C.R.U.D Practice',
-    'page_title'    => 'Home'
+    'page_title'    => 'Create'
 ]);
 
-echo $twig->render('index.twig', $data);
+echo $twig->render('create.twig', $data);

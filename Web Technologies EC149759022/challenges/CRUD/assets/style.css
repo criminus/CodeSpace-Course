@@ -10,3 +10,9 @@ body {
 .icon_new {
     display:block;
 }
+
+.flex {
+    display: flex;
+    gap: 2rem;
+    /* justify-content: space-around; */
+}
