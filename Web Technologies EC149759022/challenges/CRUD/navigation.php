@@ -9,8 +9,10 @@ require 'includes/autoload.php';
 
 //Get current file
 $uri = $_SERVER['REQUEST_URI'];
+// Remove query string from the URI
+$uriWithoutQuery = parse_url($uri, PHP_URL_PATH);
 //Get file name without extension
-$activePage = basename($uri, '.php');
+$activePage = basename($uriWithoutQuery, '.php');
 
 //Define the pages array
 $pages = [
