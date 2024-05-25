@@ -4,13 +4,14 @@ require 'config.php';
 
 //Define createItem function
 function createItem (
-    $pdo,
     $itemName,
     $itemDesc,
     $itemImage,
     $itemPrice
 ) {
-
+    //Get PDO inside the function using global
+    global $pdo;
+    
     //Define empty errors array to hold any errors
     $errors = [];
 

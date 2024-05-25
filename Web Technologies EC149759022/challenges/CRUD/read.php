@@ -13,7 +13,7 @@ require 'includes/read.func.php';
 $data = array_merge($navigation, [
     'site_name'     => 'C.R.U.D Practice',
     'page_title'    => 'Read',
-    'itemList'      => getItems($pdo)
+    'itemList'      => getItems()
 ]);
 
 echo $twig->render('read.twig', $data);

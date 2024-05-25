@@ -4,8 +4,10 @@ require 'config.php';
 
 //Define the getItems function
 function getItems(
-    $pdo
 ) {
+    //Get PDO inside the function using global
+    global $pdo;
+    
     try {
         $stmt = $pdo->prepare('SELECT * FROM products');
         $stmt->execute();

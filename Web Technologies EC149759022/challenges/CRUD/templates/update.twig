@@ -12,26 +12,37 @@
         <h1 class="h2">C.R.U.D <small>(Update)</small></h1>
         <p>This involved establishing a database connection, creating an HTML form to collect user input, processing the form submission with PHP, and executing an SQL UPDATE query.</p>
         <hr>
-        <form>
-        <div class="mb-3">
-            <label for="itemID" class="form-label">Item ID:</label>
-            <input type="text" class="form-control" id="itemID" name="itemID" required>
-        </div>
+        <h3>Update details for item: {{item.item_name}} (Item ID: {{item.item_id}})</h3>
+        <form method='post' action='includes/update.form.php'>
+        {% if form_message %}
+            <div class="alert alert-{{ form_message_type }}" role="alert">
+                {{ form_message }}
+            </div>
+        {% endif %}
+        {% if errors is not empty %}
+            <div class="alert alert-danger">
+                    {% for error in errors %}
+                    {{ error }}<br>
+                    {% endfor %}
+            </div>
+        {% endif %}
+        <!-- Hidden input to get the ID of this item -->
+        <input type="hidden" name="itemID" value="{{ item.item_id }}">
         <div class="mb-3">
             <label for="itemName" class="form-label">Item Name:</label>
-            <input type="text" class="form-control" id="itemName" name="itemName" required>
+            <input type="text" class="form-control" id="itemName" name="itemName" value="{{item.item_name}}" required>
         </div>
         <div class="mb-3">
             <label for="itemDesc" class="form-label">Description:</label>
-            <textarea class="form-control" id="itemDesc" name="itemDesc" rows="3" required></textarea>
+            <textarea class="form-control" id="itemDesc" name="itemDesc" rows="3" required>{{item.item_desc}}</textarea>
         </div>
         <div class="mb-3">
             <label for="itemImage" class="form-label">Image:</label>
-            <input type="text" class="form-control" id="itemImage" name="itemImage" required>
+            <input type="text" class="form-control" id="itemImage" name="itemImage" value="{{item.item_img}}" required>
         </div>
         <div class="mb-3">
             <label for="itemPrice" class="form-label">Item Price:</label>
-            <input type="number" class="form-control" id="itemPrice" name="itemPrice" step="0.01" required>
+            <input type="number" class="form-control" id="itemPrice" name="itemPrice" step="0.01" value="{{item.item_price}}" required>
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Update item</button>
