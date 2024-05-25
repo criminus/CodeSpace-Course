@@ -16,7 +16,7 @@
         <h4>Confirm Item Deletion for: {{item.item_name}} (Item ID: {{item.item_id}})</h4>
         <p>Are you sure you want to delete item ?</p>
         {% endif %}
-        <form action="includes/delete_item.php" method="post">
+        <form action="includes/delete.form.php" method="post">
             {% if form_message %}
                 <div class="alert alert-{{ form_message_type }}" role="alert">
                     {{ form_message }}
