@@ -12,10 +12,31 @@
         <h1 class="h2">C.R.U.D <small>(Delete)</small></h1>
         <p>In this lesson, you will learn how to delete a record from a database using PHP. We'll cover the essential steps involved in connecting to a database, executing a deletion query, and handling the result.</p>
         <hr>
-        <h4>Confirm Item Deletion for: </h4>
+        {% if form_message_type == '' %}
+        <h4>Confirm Item Deletion for: {{item.item_name}} (Item ID: {{item.item_id}})</h4>
         <p>Are you sure you want to delete item ?</p>
-        <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Confirm</a>
-        <a href="read.php" class="btn btn-success"><i class="fa fa-times" aria-hidden="true"></i> Abort</a>
+        {% endif %}
+        <form action="includes/delete_item.php" method="post">
+            {% if form_message %}
+                <div class="alert alert-{{ form_message_type }}" role="alert">
+                    {{ form_message }}
+                </div>
+            {% endif %}
+            {% if errors is not empty %}
+                <div class="alert alert-danger">
+                        {% for error in errors %}
+                        {{ error }}<br>
+                        {% endfor %}
+                </div>
+            {% endif %}
+            <input type="hidden" name="itemID" value="{{item.item_id}}">
+             {% if form_message_type == '' %}
+                <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Confirm</button>
+                <a href="read.php" class="btn btn-success"><i class="fa fa-times" aria-hidden="true"></i> Abort</a>
+            {% else %}
+                <a href="read.php" class="btn btn-success"><i class="fa fa-backward" aria-hidden="true"></i> Back to Items</a>
+            {% endif %}
+        </form>
     </div>
     {% include 'footer.twig' %}
 </body>

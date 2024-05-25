@@ -54,6 +54,9 @@ function getItemDetails(
     //Get PDO inside the function using global
     global $pdo;
 
+    //Define empty errors array to hold any errors
+    $errors = [];
+
     //Try catch block
     try {
         $stmt = $pdo->prepare('SELECT item_id, item_name, item_desc, item_img, item_price FROM products WHERE item_id = :item_id');
