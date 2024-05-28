@@ -1,4 +1,4 @@
-# Challenge 3
+# Challenge: eCommerce
 In this challenge we have to create a eCommerge website with basic functions.
 
 ## Key Features:
