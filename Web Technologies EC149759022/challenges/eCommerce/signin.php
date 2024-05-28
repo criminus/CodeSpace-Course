@@ -24,6 +24,10 @@ $form_message_type = '';
 if (isset($_GET['success']) && $_GET['success'] == 'true') {
     $form_message = 'Successfuly loged in! You will now be redirected!';
     $form_message_type = 'success';
+
+    //Redirect to home
+    header("refresh:3, url=index.php");
+    
 } elseif (isset($_GET['error']) && $_GET['error'] == 'true') {
     $form_message = 'Something went wrong. Please try again. If the problem persist, please contact the Administrator.';
     $form_message_type = 'danger';

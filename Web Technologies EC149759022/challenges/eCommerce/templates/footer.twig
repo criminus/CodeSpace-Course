@@ -6,6 +6,14 @@
 		<div class="modal" id="myModal" tabindex="-1">
 			<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
+			{% if user.userLoggedIn %}
+				<div class="modal-header">
+				<h5 class="modal-title">You are logged in!</h5>
+				</div>
+				<div class="modal-body">
+				test
+				</div>
+			{% else %}
 				<div class="modal-header">
 				<h5 class="modal-title">Oups!</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -17,6 +25,7 @@
 				<a href="signup.php" type="button" class="btn btn-secondary">Register</a>
 				<a href="signin.php" type="button" class="btn btn-primary">Login</a>
 				</div>
+			{% endif %}
 			</div>
 			</div>
 		</div>

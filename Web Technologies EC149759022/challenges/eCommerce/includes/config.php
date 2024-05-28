@@ -1,7 +1,7 @@
 <?php
 //Database connection using PDO
 $host = "localhost";
-$dbname = "mktime";
+$dbname = "codespace";
 $username = "root";
 $password = "";
 
