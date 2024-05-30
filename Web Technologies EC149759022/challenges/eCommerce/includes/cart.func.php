@@ -30,3 +30,22 @@ function getBasket ($user_id) {
          die('Error querying the database: '. $e->getMessage());
     }
 }
+
+function getTotal($user_id) {
+    global $pdo;
+
+    try {
+        //Get the sum of all items for this user_id
+        $query = 'SELECT SUM(total) AS total_sum FROM basket WHERE user_id = :user_id';
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $total = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        //If we find anything we return the value, otherwise, set it to 0
+        return $total && $total['total_sum'] !== null ? $total['total_sum'] : 0;
+
+    } catch (PDOException $e) {
+        die('Error while querying the database: '. $e->getMessage());
+    }
+}

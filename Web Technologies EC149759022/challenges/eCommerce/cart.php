@@ -12,9 +12,11 @@ session_start();
 if ((isset($_SESSION['loggedin']) && $_SESSION['loggedin'])) {
     $user_id = $_SESSION['user_id'];
     $my_items = getBasket($user_id);
+    $total_cart = getTotal($user_id);
     $template = 'cart.twig';
 } else {
     $my_items = '';
+    $total_cart = '';
     $template = 'error.twig';
 }
 
@@ -25,7 +27,8 @@ $navigation = include 'navigation.php';
 $data = array_merge($navigation, [
     'sitename'              => 'MK Time',
     'pageTitle'             => 'My Basket',
-    'items'                 => $my_items
+    'items'                 => $my_items,
+    'total'                 => $total_cart
 ]);
 
 // Render the template

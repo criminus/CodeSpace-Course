@@ -10,6 +10,9 @@ require 'includes/read.func.php';
 //Start Session
 session_start();
 
+//if we are returning to the shop, we reset the last_added_item
+$_SESSION['last_added_item'] = '';
+
 // Load Navigation
 $navigation = include 'navigation.php';
 

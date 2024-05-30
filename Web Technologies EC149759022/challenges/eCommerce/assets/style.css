@@ -72,8 +72,44 @@ h3 {
     }
 }
 
+@media (max-width: 600px) {
+    .hide-mobile {
+        display:none;
+    }
+}
+
 .product-image img {
     max-height: 125px;
     max-width: 125px;
     float:left;
 }
+
+.cart-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-body-items {
+    width: 70%;
+}
+
+.cart-body-actions {
+    width: 29%;
+}
+
+@media (max-width: 700px) {
+    .cart-body {
+        display:block;
+    }
+    .cart-body-items {
+        width: 100%;
+    }
+    .cart-body-actions {
+        width: 100%;
+    }
+} 

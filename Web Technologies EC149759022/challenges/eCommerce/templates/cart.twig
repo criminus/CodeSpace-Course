@@ -12,37 +12,51 @@
         <br>
             <div class="card">
             <div class="card-header">
-                My basket
+                <i class="bi bi-cart-plus"></i> Basket {% if items is not empty %}&bull; The following item(s) are currently in your basket: ({{user.basket_quantity}}){% endif %}
             </div>
             <div class="card-body">
-                <h5 class="card-title">The following items are currently in your basket:</h5>
-
-                {% if items is not empty %}
+            {% if items is not empty %}
+                <div class="cart-body">
+                    <div class="cart-body-items">
+                        <h2>Items</h2>
+                        <hr>
                         <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col">Product name</th>
-                            <th scope="col">Product Description</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Item name</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col" class="hide-mobile">P/Unit</th>
+                            <th scope="col">Total</th>
                             </tr>
                         </thead>
                         <tbody>
                         {% for item in items %}
                             <tr id="#{{item.item_id}}">
                             <td>{{item.item_name}}</td>
-                            <td>{{item.item_desc}}</td>
                             <td>{{item.quantity}}</td>
-                            <td>{{item.item_price * item.quantity}}</td>
+                            <td class="hide-mobile">${{item.item_price}}</td>
+                            <td>${{item.item_price * item.quantity}}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
                         </table>
+                    </div>
+                    <div class="cart-body-actions">
+                        <h2>Summary</h2>
+                        <hr>
+                        <p>Subtotal: {{total}}<br>VAT (20%): {{total * 0.2}}<br>Total (inc. VAT): {{total + (total * 0.2)}}</p>
+                    </div>
+                </div>
                 {% else %}
                     <p class="card-text">Your cart is empty :)</p>
                 {% endif %}
-
-                <a href="index.php"><i class="bi bi-arrow-return-left"></i> Back to main page</a>
+                <hr>
+                <div class="cart-footer">
+                    <a href="index.php" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left"></i> Back <span class="hide-mobile">to main page</span></a>
+                    {% if items is not empty %}
+                        <a href="index.php" type="button" class="btn btn-success"><i class="bi bi-bag-check-fill"></i> Checkout ${{total + (total * 0.2)}}</a>
+                    {% endif %}
+                </div>
             </div>
             </div>
 		</div>
