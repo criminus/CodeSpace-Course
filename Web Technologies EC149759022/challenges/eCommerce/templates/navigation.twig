@@ -13,7 +13,7 @@
                         <i class="bi bi-house-door-fill"></i> Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if pages.mens.isActive %}active{% endif %}" aria-current="page" href="{{ pages.mens.url }}">
+                    <a class="nav-link {% if pages.mens.isActive or pages.add.isActive %}active{% endif %}" aria-current="page" href="{{ pages.mens.url }}">
                         <i class="bi bi-bag-check"></i> Products </a>
                 </li>    
 {#                 <li class="nav-item dropdown">
@@ -42,14 +42,22 @@
 
             {% if user.userLoggedIn %}
             <span class="navbar-text">
-                <hr class="responsive-hr" /> {{ user.email }}
+                <hr class="responsive-hr" /> {{ user.first_name }} {{ user.last_name }}
             </span>
             <span class="navbar-text">
-                <form class="container-fluid justify-content-start  responsive-cart">
-                    <button type="button" class="btn btn-light position-relative">
-                        <i class="bi bi-cart-plus"></i> Cart <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> 0 <span class="visually-hidden"></span>
+                <form class="container-fluid justify-content-start responsive-cart">
+                    <a href="{{ pages.cart.url }}" type="button" class="btn btn-outline-secondary position-relative {% if pages.cart.isActive %}active{% endif %}">
+                        <i class="bi bi-cart-plus"></i> Cart <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> {{user.basket_quantity}} <span class="visually-hidden"></span>
                         </span>
-                    </button>
+                    </a>
+                </form>
+            </span>
+            <span class="navbar-text">
+                <form class="container-fluid justify-content-start responsive-cart">
+                    <a href="#" type="button" class="btn btn-outline-secondary position-relative" style="margin-right: 15px;">
+                        <i class="bi bi-list"></i> My Orders <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> {{user.my_orders}} <span class="visually-hidden"></span>
+                        </span>
+                    </a>
                 </form>
             </span>
             <span class="navbar-text">

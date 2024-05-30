@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{sitename}} - {{pageTitle}}</title>
+        {% include 'head.twig' %}
+	</head>
+	<body>
+		{% include 'navigation.twig' %}
+		<div class="container">
+        <br>
+            <div class="card">
+            <div class="card-header">
+                Item added to the cart!
+            </div>
+            <div class="card-body">
+                <div class="product-image">
+                    <img src="./assets/images/products/{{item.item_img}}" alt="" title="" />
+                </div>
+                <h5 class="card-title">{{item.item_name}}</h5>
+                <p class="card-text">{{item.item_desc}}</p>
+                <a href="mens.php"><i class="bi bi-arrow-return-left"></i> Back to shopping</a>
+                |
+                <a href="#"><i class="bi bi-bag-check"></i> Checkout</a>
+            </div>
+            </div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		{% include 'footer.twig' %}
+	</body>
+</html>

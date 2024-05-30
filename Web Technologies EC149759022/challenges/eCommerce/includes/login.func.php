@@ -29,7 +29,7 @@ function checkCustomer(
     if (empty($errors)) {
         try {
             //Check credentials
-            $stmt = $pdo->prepare("SELECT pass, email FROM users WHERE email = ?");
+            $stmt = $pdo->prepare("SELECT user_id, first_name, last_name, pass, email FROM users WHERE email = ?");
             $stmt->execute([$email]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -37,6 +37,9 @@ function checkCustomer(
                 //If login is correct, set session, email and redirect user
                 $_SESSION['loggedin'] = true;
                 $_SESSION['email'] = $email;
+                $_SESSION['first_name'] = $user['first_name'];
+                $_SESSION['last_name']  = $user['last_name'];
+                $_SESSION['user_id'] = $user['user_id'];
 
                 header("Location: ../signin.php?success=true");
                 exit;

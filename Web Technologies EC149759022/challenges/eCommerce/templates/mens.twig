@@ -14,72 +14,29 @@
 			<br>
 			<p> Introducing the Classic Fusion Hybrid Watch: Seamlessly blending timeless elegance with contemporary functionality, this sophisticated timepiece marries the enduring appeal of traditional craftsmanship with modern innovation. With its refined analog dial and premium materials, it exudes understated luxury, evoking the essence of classic watchmaking. Beneath its timeless facade lies a suite of smart features, including discreet notifications, activity tracking, and customizable complications, effortlessly integrating into your modern lifestyle without compromising on style. Experience the perfect fusion of heritage and technology with the Classic Fusion Hybrid Watch. </p>
 			<div class="row row-cols-1 row-cols-md-3 g-4">
-				<div class="col">
-					<div class="card">
-						<img src="./assets/images/mens.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Hybrid Watch 1 <span class="badge text-bg-secondary">415$</span>
-							</h5>
-							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<a href="#" onclick="addToCart();" class="btn btn-primary">Add to cart</a>
+			{% if items is not empty %}
+				{% for item in items %}
+					<div class="col">
+						<div class="card">
+							<img src="./assets/images/products/{{item.item_img}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">{{item.item_name}} <span class="badge text-bg-secondary">{{item.item_price}}$</span>
+								</h5>
+								<p class="card-text">{{item.item_desc}}</p>
+								{% if user.userLoggedIn %}
+									<a href="add.php?item_id={{item.item_id}}" class="btn btn-primary">Add to cart</a>
+								{% else %}
+									<a href="#" onclick="addToCart();" class="btn btn-primary">Add to cart</a>
+								{% endif %}
+							</div>
 						</div>
 					</div>
+				{% endfor %}
+			{% else %}
+				<div class="alert alert-info" role="alert">
+				Our shop is currently empty. Please come back later ! :)
 				</div>
-				<div class="col">
-					<div class="card">
-						<img src="./assets/images/mens.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Hybrid Watch 2 <span class="badge text-bg-secondary">415$</span>
-							</h5>
-							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<a href="#" onclick="addToCart();" class="btn btn-primary">Add to cart</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card">
-						<img src="./assets/images/mens.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Hybrid Watch 3 <span class="badge text-bg-secondary">415$</span>
-							</h5>
-							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<a href="#" onclick="addToCart();" class="btn btn-primary">Add to cart</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card">
-						<img src="./assets/images/mens.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Hybrid Watch 4 <span class="badge text-bg-secondary">415$</span>
-							</h5>
-							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<a href="#" onclick="addToCart();" class="btn btn-primary">Add to cart</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card">
-						<img src="./assets/images/mens.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Hybrid Watch 5 <span class="badge text-bg-secondary">415$</span>
-							</h5>
-							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<a href="#" onclick="addToCart();" class="btn btn-primary">Add to cart</a>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card">
-						<img src="./assets/images/mens.jpg" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">Hybrid Watch 6 <span class="badge text-bg-secondary">415$</span>
-							</h5>
-							<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<a href="#" onclick="addToCart();" class="btn btn-primary">Add to cart</a>
-						</div>
-					</div>
-				</div>
+			{% endif %}	
 			</div>
 		</div>
 		<br>

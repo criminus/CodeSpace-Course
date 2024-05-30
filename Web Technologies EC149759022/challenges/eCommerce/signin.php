@@ -26,7 +26,7 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     $form_message_type = 'success';
 
     //Redirect to home
-    header("refresh:3, url=index.php");
+    header("refresh:1, url=index.php");
     
 } elseif (isset($_GET['error']) && $_GET['error'] == 'true') {
     $form_message = 'Something went wrong. Please try again. If the problem persist, please contact the Administrator.';

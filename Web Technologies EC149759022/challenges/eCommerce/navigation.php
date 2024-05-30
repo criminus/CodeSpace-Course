@@ -11,6 +11,9 @@ $uriWithoutQuery = parse_url($uri, PHP_URL_PATH);
 //Get file name without extension
 $activePage = basename($uriWithoutQuery, '.php');
 
+//Shopping cart quantity
+require_once 'includes/user.func.php';
+
 //Define each page if active and its name
 $pages = [
     'contact'   => [
@@ -41,11 +44,33 @@ $pages = [
         'url'       => 'womens.php',
         'isActive'  => $activePage == 'womens',
     ],
+    'add'       => [
+        'url'       => 'add.php',
+        'isActive'  => $activePage == 'add'
+    ],
+    'cart'      => [
+        'url'       => 'cart.php',
+        'isActive'  => $activePage == 'cart'
+    ]
 ];
 
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $basket_quantity = getMyItems($user_id);
+    $my_orders = getMyOrders($user_id);
+} else {
+    $basket_quantity = 0;
+    $my_orders = 0;
+}
+
 $user_data = [
-    'userLoggedIn' => isset($_SESSION['loggedin']) && $_SESSION['loggedin'],
-    'email' => isset($_SESSION['email']) ? $_SESSION['email'] : null
+    'userLoggedIn'      => isset($_SESSION['loggedin']) && $_SESSION['loggedin'],
+    'email'             => isset($_SESSION['email']) ? $_SESSION['email'] : null,
+    'first_name'        => isset($_SESSION['first_name']) ? $_SESSION['first_name'] : null,
+    'last_name'         => isset($_SESSION['last_name']) ? $_SESSION['last_name'] : null,
+    'user_id'           => isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null,
+    'basket_quantity'   => $basket_quantity,
+    'my_orders'         => $my_orders
 ];
 
 return [
